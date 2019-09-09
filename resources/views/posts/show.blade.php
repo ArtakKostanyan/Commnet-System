@@ -15,7 +15,12 @@
                         <hr />
                         <h4>Display Comments</h4>
 
-                        @include('posts.commentsDisplay', ['comments' => $post->comments, 'post_id' => $post->id])
+                         
+                        @php
+
+                            $comments->print_Comments();
+
+                        @endphp
 
                         <hr />
                         <h4>Add comment</h4>
