@@ -14,7 +14,7 @@ class PrintCommnets{
   }
 
 
-    public function Print_Commnet($parent,$count=0){
+    public function printCommnet($parent,$count=0){
         foreach ($parent as $k=>$v){
           echo  $this->formGenerate($v,$this->post,$count);
 
