@@ -8,27 +8,18 @@ class PrintCommnets{
     public $parents=[];
     public $children=[];
     public $post;
-    public function Form_Generate($comment,$post,$count){
+    public function formGenerate($comment,$post,$count){
 
         return view('posts.CommentsForm',['comment'=>$comment,'post'=>$post,'count'=>$count]);
   }
 
 
-//    public function space($count){
-//        for ($count; $count > 0; $count--) {
-//            echo "!!!";
-//        }
-//    }
-
     public function Print_Commnet($parent,$count=0){
         foreach ($parent as $k=>$v){
-//            $this->space($count,);
-//            echo $v->body;
-//            echo "<br>";
-          echo  $this->Form_Generate($v,$this->post,$count);
+          echo  $this->formGenerate($v,$this->post,$count);
 
             if (  !empty ($this->children[$v->id])){
-                $this->Print_Commnet($this->children[$v->id],$count+40);
+                $this->printCommnet($this->children[$v->id],$count+40);
             }
         }
     }
@@ -47,11 +38,11 @@ class PrintCommnets{
         }
     }
 
-    public  function Print_Comments(){
+    public  function printComments(){
 
         foreach ($this->parents as $parent){
 
-            $this->Print_Commnet($parent);
+            $this->printCommnet($parent);
         }
     }
 }
