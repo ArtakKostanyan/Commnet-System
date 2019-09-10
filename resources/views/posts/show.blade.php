@@ -18,7 +18,7 @@
                          
                         @php
 
-                            $comments->Print_Comments();
+                            $comments->printComments();
 
                         @endphp
 
